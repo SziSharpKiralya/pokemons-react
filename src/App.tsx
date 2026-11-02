@@ -1,3 +1,4 @@
+import type { Pokemon } from "./types/Pokemon";
 import { PokemonData } from "./data/PokemonData";
 import { PageHead } from './components/PageHead'
 import { Index } from './components/Index'
@@ -15,12 +16,16 @@ function App() {
 
   function goToMod() {setMenu("mod")}
 
+  function AddEvent(item: Pokemon) {
+    setPokemons(oldItems => oldItems.concat(item));
+  }
+
   function EditEvent(id: number) {
 
   }
 
   function DeleteEvent(id: number) {
-
+    setPokemons(oldItems => oldItems.filter(a => a.id != id));
   }
 
   function InPossessionEvent(id: number) {
@@ -39,7 +44,7 @@ function App() {
         <Index itemsList={pokemons}></Index>
       )}
       {menu === "admin" && (
-        <Admin itemsList={pokemons} EditEvent={EditEvent} DeleteEvent={DeleteEvent}></Admin>
+        <Admin itemsList={pokemons} AddEvent={AddEvent} EditEvent={EditEvent} DeleteEvent={DeleteEvent}></Admin>
       )}
       {menu === "mod" && (
         <Mod itemsList={pokemons} InPossessionEvent={InPossessionEvent}></Mod>
