@@ -1,4 +1,6 @@
+import { PokemonData } from "./data/PokemonData";
 import { PageHead } from './components/PageHead'
+import { Index } from './components/Index'
 import { useState } from 'react'
 
 function App() {
@@ -10,12 +12,20 @@ function App() {
 
   function goToMod() {setMenu("mod")}
 
+  function EditEvent(id: number) {
+
+  }
+
+  function DeleteEvent(id: number) {
+
+  }
+
   return (
     <>
       <PageHead goToIndex={goToIndex} goToAdmin={goToAdmin} goToMod={goToMod}></PageHead>
 
       {menu === "index" && (
-        <>index</>
+        <Index itemsList={PokemonData}></Index>
       )}
       {menu === "admin" && (
         <>admin</>

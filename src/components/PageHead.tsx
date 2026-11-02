@@ -4,13 +4,13 @@ type Props = {
   goToMod: () => void;
 };
 
-export function PageHead({goToIndex, goToAdmin, goToMod}: Props) {
+export function PageHead(props: Props) {
   return (
     <>
       <div>
-        <button onClick={goToIndex}>Index</button>
-        <button onClick={goToAdmin}>Admin</button>
-        <button onClick={goToMod}>Mod</button>
+        <button onClick={props.goToIndex}>Index</button>
+        <button onClick={props.goToAdmin}>Admin</button>
+        <button onClick={props.goToMod}>Mod</button>
       </div>
     </>
   )
